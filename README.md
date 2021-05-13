@@ -12,7 +12,7 @@ In this context, this challenge seeks to develop algorithms for the analysis and
 
 **The main task in this challenge is to leverage a graph of biomedical concepts related to COVID-19 and the relations between them to try to discover novel, plausible relations between concepts.**
 
-The data for this challenge can be downloaded from [https://doi.org/10.13139/OLCF/1782714](https://doi.org/10.13139/OLCF/1782714) as well as from this repository (`data/`).
+The data for this challenge can be downloaded from [https://doi.org/10.13139/OLCF/1782714](https://doi.org/10.13139/OLCF/1782714).
 
 The following data is provided to participants:
 
