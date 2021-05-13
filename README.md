@@ -12,28 +12,30 @@ In this context, this challenge seeks to develop algorithms for the analysis and
 
 **The main task in this challenge is to leverage a graph of biomedical concepts related to COVID-19 and the relations between them to try to discover novel, plausible relations between concepts.**
 
+The data for this challenge can be downloaded from [https://doi.org/10.13139/OLCF/1782714](https://doi.org/10.13139/OLCF/1782714) as well as from this repository (`data/`).
+
 The following data is provided to participants:
 
-* `graph.mtx`: Graph representing biomedical concepts and relations between them constructed from PubMed, Semantic MEDLINE, and CORD-19. This graph represents a historic snapshot of the data, i.e., a graph of all known concepts and relations between them up to June 2020.
-* `graph.dist` and `graph.aux`: Data representing the shortest path between all pairs of concepts in the above graph.
-* `concepts.csv` and `papers.csv`: Mapping between the above matrices, CORD-19 publications, and UMLS (Semantic MEDLINE) concepts.
+* `edges_cc.csv`: Graph representing biomedical concepts and relations between them constructed from PubMed, Semantic MEDLINE, and CORD-19. This graph is provided as a CSV containing a list of edges. This part of the graph is undirected, i.e., A->B and B->A relations are considered identical.
+* `edges_pc.csv`: Relations between concepts in the above graph and their source papers. These relations are again provided as a list of undirected edges.
+* `edges_pp.csv`: Citation relations between papers in the graph. These relations are again provided as a list of edges. This part of the graph is directed, i.e., A->B represents a citation relation where A references B.
+* `papers.csv`: Additional information about papers, mainly their date of publication.
 
 A detailed description of this data is provided [here](https://zenodo.org/record/3980252).
 
-The data is split into two parts: a version of the knowledge graph built from papers published up until June 2020, and a version that includes all data up until February 2021. The goal is to use papers in the older version of the graph to predict new relations in the newer graph.
+The participants are asked to develop a model that will, given a historic snapshot of the data (e.g., all data in the graph up until March, 2020) predict which new links are likely to form in the future.
 
 The participants are allowed to leverage external data, particularly data from PubMed and Semantic MEDLINE that are not included in the provided dataset.
 
 ### Challenge questions
 
-* Analyze and visualize the provided graph and all-pairs shortest paths (APSP) data and provide statistics such as, betweenness centrality, average path length and frequency of concept occurrence in different paths.
-* Compare APSP path statistics with the future connections -- are the length of a path between two concepts or other path statistics indicative of whether the concepts will form a connection in the future?
-* Develop a classification or a model that uses the APSP data or other relevant data as input and predicts which concepts will form a connection in the future.
+* Analyze and visualize the provided graph and provide statistics such as, betweenness centrality, average path length and frequency of concept occurrence in different paths.
+* Compare all pairs shortest path (APSP) statistics with the future connections -- are the length of a path between two concepts or other path statistics indicative of whether the concepts will form a connection in the future?
+* Develop a classification or a model that uses APSP data or other relevant data as input and predicts which concepts will form a connection in the future.
 * Develop ranking model/function for ranking the predicted links according to their importance.
 
 ## Timeline
 
-* Dataset release: TBA
 * Registration opens: May 10
 * Registration closes: June 22
 * Submissions due: July 31
